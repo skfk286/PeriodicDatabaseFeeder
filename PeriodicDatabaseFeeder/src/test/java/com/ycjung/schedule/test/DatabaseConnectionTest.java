@@ -22,7 +22,7 @@ public class DatabaseConnectionTest {
         assertThat(jdbcTemplate).isNotNull();
 
         // 데이터베이스에 쿼리를 실행하여 연결 테스트
-        int result = jdbcTemplate.queryForObject("SELECT 1", Integer.class);
+        int result = jdbcTemplate.queryForObject("SELECT 1 FROM EXAMPLE", Integer.class);
         assertThat(result).isEqualTo(1);
     }
 }
