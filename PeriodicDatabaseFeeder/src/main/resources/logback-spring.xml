@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="CONSOLE_LOG_PATTERN"
+        value="%clr([%d{yyyy-MM-dd HH:mm:ss.SSS}]){faint} %clr([${LOG_LEVEL_PATTERN:-%5p}]) 
+        %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} 
+        %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+        
+<!--     <property name="CONSOLE_LOG_PATTERN2"
+        value="[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%X{guid}] [%5level] %-40.40logger{39} [%4line] : %msg%n%ex{full}" /> -->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+                <outputPatternAsHeader>true</outputPatternAsHeader>
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/Test2/PeriodicDatabaseFeeder.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>C:/Test/test.%d{yyyy-MM-dd}.log.zip
+            </fileNamePattern>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line]
+                %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.zaxxer.hikari" level="error"/>
+    <logger name="org.springframework" level="error" />
+    <logger name="org.springframework.web" level="error" />
+    <logger name="org.springframework.jdbc" level="error" />
+    <logger name="org.springframework.context.annotation" level="error" />
+    <logger name="org.springframework.transaction" level="error" />
+    <logger name="org.apache.http" level="INFO" />
+    <logger name="org.mongodb.driver" level="WARN" />
+
+    <logger name="java.sql" level="error" />
+    <logger name="jdbc.sqlonly" level="error" />
+    <logger name="jdbc.sqltiming" level="error" />
+    <logger name="jdbc.audit" level="error" />
+    <logger name="jdbc.resultset" level="error" />
+    
+    <logger name="com.intuit" level="error" />
+    <logger name="org.apache" level="info" />
+    <logger name="com.intuit.jaxrs.example.JdbcQueryExecutorApplication" level="info" />
+    
+
+    <!-- Maria DB -->    
+    <logger name="org.mariadb.jdbc" level="debug" />
+    
+    <!-- 애플리케이션 -->
+    <logger name="com.idrsoft.jdbc.executor" level="trace" />
+    
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

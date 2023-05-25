@@ -1,0 +1,10 @@
+server:
+  ip: 127.0.0.1
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
