@@ -28,8 +28,13 @@ public class ExampleDaoImpl implements ExampleDao {
             Date systemDate = new Date(rs.getTimestamp("SYSTEM_DATE").getTime());
             return new ExampleVo(seq, text, systemDate);
         };
-        
 
         return jdbcTemplate.query(sql, rowMapper);
+    }
+
+    @Override
+    public Integer insertExample(String text) {
+        String sql = "INSERT INTO EXAMPLE (TEXT, SYSTEM_DATE) VALUES (?, ?)";
+        return jdbcTemplate.update(sql, text, new Date());
     }
 }

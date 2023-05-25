@@ -7,4 +7,6 @@ import com.ycjung.schedule.vo.ExampleVo;
 public interface ExampleDao {
     
     public List<ExampleVo> selectExample();
+    
+    public Integer insertExample(String text);
 }

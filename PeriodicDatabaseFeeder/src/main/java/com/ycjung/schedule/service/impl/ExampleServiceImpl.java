@@ -20,4 +20,9 @@ public class ExampleServiceImpl implements ExampleService {
     public List<ExampleVo> selectExample() {
         return exampleDao.selectExample();
     }
+
+    @Override
+    public Integer insertExample(String text) {
+        return exampleDao.insertExample(text);
+    }
 }
