@@ -21,9 +21,9 @@
 
     <appender name="FILE"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>C:/Test2/PeriodicDatabaseFeeder.log</file>
+        <file>/log/framexpert/file/trx-tracking.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>C:/Test/test.%d{yyyy-MM-dd}.log.zip
+            <fileNamePattern>/log/framexpert/file/bak/trx-tracking.%d{yyyy-MM-dd_HH}.log
             </fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>

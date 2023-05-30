@@ -16,10 +16,10 @@ public class SchedulerService {
     
     @Resource ExampleService exampleService;
     
-    @Scheduled(cron = "10 * * * * *")
+    @Scheduled(cron = "*/20 * * * * ?")
     public void run() {
         String msg = "Hello World!";
-        exampleService.insertExample(msg);
+        //exampleService.insertExample(msg);
         logger.debug("{} {}", Default.LOG_KEY, msg);
     }
     
