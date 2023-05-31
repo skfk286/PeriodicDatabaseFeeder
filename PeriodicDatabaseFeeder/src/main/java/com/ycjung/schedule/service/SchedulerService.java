@@ -16,7 +16,7 @@ public class SchedulerService {
     
     @Resource ExampleService exampleService;
     
-    @Scheduled(cron = "*/20 * * * * ?")
+    @Scheduled(cron = "*/1 * * * * ?")
     public void run() {
         String msg = "Hello World!";
         //exampleService.insertExample(msg);
