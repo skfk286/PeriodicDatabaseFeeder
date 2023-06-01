@@ -33,8 +33,8 @@ public class ExampleController implements InitializingBean{
     public String test2() {
         logger.debug("{} ▶▶▶▶▶ /test2.do ▶▶▶▶", Default.LOG_KEY);
         
-        LogbackConfigTest.printMaxHistoryForAllAppenders();
-        
+        //LogbackConfigTest.printMaxHistoryForAllAppenders();
+        LogbackConfigTest.printAllAppenderConfigs();
         return "hello world!!!";
     }
 
